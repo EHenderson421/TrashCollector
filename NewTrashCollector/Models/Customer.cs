@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -34,6 +35,15 @@ namespace NewTrashCollector.Models
 
         [Display(Name = "Bill Current")]
         public bool HasPaid { get; set; }
+
+        [ForeignKey("Address")]
+        public int AddressId { get; set; }
+        public Address Address { get; set; }
+
+        [ForeignKey("Invoice")]
+        public int InvoiceId { get; set; }
+        public Invoice Invoice { get; set; }
+
 
 
 
