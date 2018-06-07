@@ -44,10 +44,13 @@ namespace NewTrashCollector.Models
         public int InvoiceId { get; set; }
         public Invoice Invoice { get; set; }
 
+        [ForeignKey("Schedule")]
+        public int ScheduleId { get; set; }
+        public Schedule Schedule { get; set; }
 
 
-
-
+        public List<Customer> Customers { get; set; }
+        public ApplicationUser User { get; set; }
 
     }
 }
