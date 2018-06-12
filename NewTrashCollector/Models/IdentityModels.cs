@@ -34,5 +34,11 @@ namespace NewTrashCollector.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        //public DbSet<Employee> Employees { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+
     }
 }
