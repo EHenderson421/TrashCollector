@@ -1,0 +1,93 @@
+﻿@model IEnumerable<NewTrashCollector.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Address.StreetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Invoice.InvoiceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Schedule.PickUpFrequency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuspendPickUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestartPickUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasPaid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address.StreetAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Invoice.InvoiceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule.PickUpFrequency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PickUpDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuspendPickUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestartPickUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasPaid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
+        </td>
+    </tr>
+}
+
+</table>
