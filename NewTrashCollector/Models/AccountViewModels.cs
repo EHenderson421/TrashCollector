@@ -79,6 +79,10 @@ namespace NewTrashCollector.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //pick the one you need
+        public string RoleName = "Customer";
+        //public string RoleName = "Employee";
     }
 
     public class ResetPasswordViewModel
