@@ -17,7 +17,8 @@ namespace NewTrashCollector.Controllers
         // GET: Schedules
         public ActionResult Index()
         {
-            return View(db.Schedules.ToList());
+            var schedules = db.Schedules.Include(s => s.Customer);
+            return View(schedules.ToList());
         }
 
         // GET: Schedules/Details/5
@@ -38,6 +39,7 @@ namespace NewTrashCollector.Controllers
         // GET: Schedules/Create
         public ActionResult Create()
         {
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ScheduleId,PickUpFrequency")] Schedule schedule)
+        public ActionResult Create([Bind(Include = "ScheduleId,CustomerId,PickUpDay,PickUpFrequency,SuspendPickUp")] Schedule schedule)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace NewTrashCollector.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", schedule.CustomerId);
             return View(schedule);
         }
 
@@ -70,6 +73,7 @@ namespace NewTrashCollector.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", schedule.CustomerId);
             return View(schedule);
         }
 
@@ -78,7 +82,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ScheduleId,PickUpFrequency")] Schedule schedule)
+        public ActionResult Edit([Bind(Include = "ScheduleId,CustomerId,PickUpDay,PickUpFrequency,SuspendPickUp")] Schedule schedule)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace NewTrashCollector.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", schedule.CustomerId);
             return View(schedule);
         }
 

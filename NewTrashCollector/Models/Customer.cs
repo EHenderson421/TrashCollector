@@ -21,33 +21,20 @@ namespace NewTrashCollector.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Display(Name = "Address")]
+        public string StreetAddress { get; set; }
+
+        public string City { get; set; }
+
+        public string State { get; set; }
+
+        public string Zip { get; set; }
+
         [Display(Name = "Phone#")]
         public string PhoneNumber { get; set; }
 
-        [Display(Name = "Pick Up Day")]
-        public string PickUpDay { get; set; }
-
-        [Display(Name = "Suspend Pick Up")]
-        public string SuspendPickUp { get; set; }
-
-        [Display(Name = "Restart Pick Up")]
-        public string RestartPickUp { get; set; }
-
         [Display(Name = "Bill Current")]
         public bool HasPaid { get; set; }
-
-        [ForeignKey("Address")]
-        public int AddressId { get; set; }
-        public Address Address { get; set; }
-
-        [ForeignKey("Invoice")]
-        public int InvoiceId { get; set; }
-        public Invoice Invoice { get; set; }
-
-        [ForeignKey("Schedule")]
-        public int ScheduleId { get; set; }
-        public Schedule Schedule { get; set; }
-
 
         public List<Customer> Customers { get; set; }
         public ApplicationUser User { get; set; }

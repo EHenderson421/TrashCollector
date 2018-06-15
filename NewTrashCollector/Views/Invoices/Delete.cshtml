@@ -12,11 +12,27 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Amount)
+            @Html.DisplayNameFor(model => model.Customer.UserId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Amount)
+            @Html.DisplayFor(model => model.Customer.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoicePaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoicePaid)
         </dd>
 
     </dl>

@@ -17,8 +17,7 @@ namespace NewTrashCollector.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = db.Customers.Include(c => c.Address).Include(c => c.Invoice).Include(c => c.Schedule);
-            return View(customers.ToList());
+            return View(db.Customers.ToList());
         }
 
         // GET: Customers/Details/5
@@ -39,9 +38,6 @@ namespace NewTrashCollector.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "StreetAddress");
-            ViewBag.InvoiceId = new SelectList(db.Invoices, "InvoiceId", "InvoiceId");
-            ViewBag.ScheduleId = new SelectList(db.Schedules, "ScheduleId", "PickUpFrequency");
             return View();
         }
 
@@ -50,7 +46,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,UserId,FirstName,LastName,PhoneNumber,PickUpDay,SuspendPickUp,RestartPickUp,HasPaid,AddressId,InvoiceId,ScheduleId")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerId,UserId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber,HasPaid")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -59,9 +55,6 @@ namespace NewTrashCollector.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "StreetAddress", customer.AddressId);
-            ViewBag.InvoiceId = new SelectList(db.Invoices, "InvoiceId", "InvoiceId", customer.InvoiceId);
-            ViewBag.ScheduleId = new SelectList(db.Schedules, "ScheduleId", "PickUpFrequency", customer.ScheduleId);
             return View(customer);
         }
 
@@ -77,9 +70,6 @@ namespace NewTrashCollector.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "StreetAddress", customer.AddressId);
-            ViewBag.InvoiceId = new SelectList(db.Invoices, "InvoiceId", "InvoiceId", customer.InvoiceId);
-            ViewBag.ScheduleId = new SelectList(db.Schedules, "ScheduleId", "PickUpFrequency", customer.ScheduleId);
             return View(customer);
         }
 
@@ -88,7 +78,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,UserId,FirstName,LastName,PhoneNumber,PickUpDay,SuspendPickUp,RestartPickUp,HasPaid,AddressId,InvoiceId,ScheduleId")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerId,UserId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber,HasPaid")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -96,9 +86,6 @@ namespace NewTrashCollector.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "StreetAddress", customer.AddressId);
-            ViewBag.InvoiceId = new SelectList(db.Invoices, "InvoiceId", "InvoiceId", customer.InvoiceId);
-            ViewBag.ScheduleId = new SelectList(db.Schedules, "ScheduleId", "PickUpFrequency", customer.ScheduleId);
             return View(customer);
         }
 

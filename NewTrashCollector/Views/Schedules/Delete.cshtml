@@ -12,11 +12,35 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Customer.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUpDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUpDay)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.PickUpFrequency)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.PickUpFrequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspendPickUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspendPickUp)
         </dd>
 
     </dl>

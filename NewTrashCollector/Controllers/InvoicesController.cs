@@ -17,7 +17,8 @@ namespace NewTrashCollector.Controllers
         // GET: Invoices
         public ActionResult Index()
         {
-            return View(db.Invoices.ToList());
+            var invoices = db.Invoices.Include(i => i.Customer);
+            return View(invoices.ToList());
         }
 
         // GET: Invoices/Details/5
@@ -38,6 +39,7 @@ namespace NewTrashCollector.Controllers
         // GET: Invoices/Create
         public ActionResult Create()
         {
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InvoiceId,Amount")] Invoice invoice)
+        public ActionResult Create([Bind(Include = "InvoiceId,CustomerId,AmountDue,InvoicePaid")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace NewTrashCollector.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", invoice.CustomerId);
             return View(invoice);
         }
 
@@ -70,6 +73,7 @@ namespace NewTrashCollector.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", invoice.CustomerId);
             return View(invoice);
         }
 
@@ -78,7 +82,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InvoiceId,Amount")] Invoice invoice)
+        public ActionResult Edit([Bind(Include = "InvoiceId,CustomerId,AmountDue,InvoicePaid")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace NewTrashCollector.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", invoice.CustomerId);
             return View(invoice);
         }
 

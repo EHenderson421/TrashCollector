@@ -196,7 +196,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoicesController.cs" />
@@ -206,17 +205,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806121532175_first.cs" />
-    <Compile Include="Migrations\201806121532175_first.Designer.cs">
-      <DependentUpon>201806121532175_first.cs</DependentUpon>
+    <Compile Include="Migrations\201806152152405_1.cs" />
+    <Compile Include="Migrations\201806152152405_1.Designer.cs">
+      <DependentUpon>201806152152405_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806121539116_2.cs" />
-    <Compile Include="Migrations\201806121539116_2.Designer.cs">
-      <DependentUpon>201806121539116_2.cs</DependentUpon>
+    <Compile Include="Migrations\201806152154565_2.cs" />
+    <Compile Include="Migrations\201806152154565_2.Designer.cs">
+      <DependentUpon>201806152154565_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806152156077_3.cs" />
+    <Compile Include="Migrations\201806152156077_3.Designer.cs">
+      <DependentUpon>201806152156077_3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -292,11 +294,11 @@
     <Content Include="Views\Role\Details.cshtml" />
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
-    <Content Include="Views\Addresses\Create.cshtml" />
-    <Content Include="Views\Addresses\Delete.cshtml" />
-    <Content Include="Views\Addresses\Details.cshtml" />
-    <Content Include="Views\Addresses\Edit.cshtml" />
-    <Content Include="Views\Addresses\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Invoices\Create.cshtml" />
     <Content Include="Views\Invoices\Delete.cshtml" />
     <Content Include="Views\Invoices\Details.cshtml" />
@@ -307,11 +309,6 @@
     <Content Include="Views\Schedules\Details.cshtml" />
     <Content Include="Views\Schedules\Edit.cshtml" />
     <Content Include="Views\Schedules\Index.cshtml" />
-    <Content Include="Views\Customers\Create.cshtml" />
-    <Content Include="Views\Customers\Delete.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Customers\Edit.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,11 +327,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806121532175_first.resx">
-      <DependentUpon>201806121532175_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806152152405_1.resx">
+      <DependentUpon>201806152152405_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806121539116_2.resx">
-      <DependentUpon>201806121539116_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806152154565_2.resx">
+      <DependentUpon>201806152154565_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806152156077_3.resx">
+      <DependentUpon>201806152156077_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
