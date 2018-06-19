@@ -1,22 +1,59 @@
 ﻿@using Microsoft.AspNet.Identity
+
+
+
+
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav-link" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right mr-auto">
+
+            @if (User.IsInRole("Employee"))
+            {
+                <li>@Html.ActionLink("Home", "Home", "Owners", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Canceled Appts", "Canceled", "Owners", routeValues: null, htmlAttributes: new { id = "canceled", @class = "nav-link" })</li>
+                
+                
+                @*<li>@Html.ActionLink("Reservations", "Index", "Reservations", routeValues: null, htmlAttributes: new { id = "reservations", @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Client List", "Index", "Clients", routeValues: null, htmlAttributes: new { id = "client list", @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Create Invoices", "Create", "Invoices", routeValues: null, htmlAttributes: new { id = "create", @class = "nav-link" })</li>*@
+            }
+            @if (User.IsInRole("Customer"))
+            {
+                <li>@Html.ActionLink("Home", "Home", "Clients", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
+                <li>@Html.ActionLink("View Invoices", "Index", "Invoices", routeValues: null, htmlAttributes: new { id = "invoices", @class = "nav-link" })</li>
+                <li>@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "about", @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Contact", "Index", "Emails", routeValues: null, htmlAttributes: new { id = "contact", @class = "nav-link" })</li>
+            }
+
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+            </li>
+
+
+
+
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
+
+        </ul>
+
+        
+
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    <ul class="nav navbar-nav navbar-right mr-auto">
+        <li>@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "about", @class = "nav-link" })</li>
+        <li>@Html.ActionLink("Contact", "Index", "Emails", routeValues: null, htmlAttributes: new { id = "contact", @class = "nav-link" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+
     </ul>
+
+
 }

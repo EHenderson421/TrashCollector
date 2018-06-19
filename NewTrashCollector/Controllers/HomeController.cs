@@ -26,5 +26,25 @@ namespace NewTrashCollector.Controllers
 
             return View();
         }
+
+        public ActionResult Home()
+        {
+            bool role = User.IsInRole("Admin");
+            if (role)
+            {
+                return RedirectToAction("AdminHome", "Customers");
+            }
+            role = User.IsInRole("Employee");
+            if (role)
+            {
+                return RedirectToAction("EmployeeHome", "Customers");
+            }
+            role = User.IsInRole("Customer");
+            if (role)
+            {
+                return RedirectToAction("CustomerHome", "Customers");
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

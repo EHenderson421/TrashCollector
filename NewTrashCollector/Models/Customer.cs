@@ -13,7 +13,7 @@ namespace NewTrashCollector.Models
         public int CustomerId { get; set; }
 
         [Display(Name = "User Name")]
-        public string UserId { get; set; }
+        public string UserName { get; set; }
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

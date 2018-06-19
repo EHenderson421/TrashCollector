@@ -1,0 +1,47 @@
+﻿@model NewTrashCollector.Models.Customer
+
+@{
+    ViewBag.Title = "EmployeeHome";
+}
+
+<h2>EmployeeHome</h2>
+<div>
+    <h1>Employee Home</h1>
+
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Review Reservations</h2>
+        <p>
+
+        </p>
+        @Html.ActionLink("Reservations", "Index", "Reservations", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+    </div>
+    <div class="col-md-4">
+        <h2>Review Clients</h2>
+        <p>
+
+        </p>
+        @Html.ActionLink("Client List", "Index", "Clients", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+    </div>
+    <div class="col-md-4">
+        <h2>Invoices</h2>
+        <p>
+
+        </p>
+        @Html.ActionLink("Create Invoices", "Create", "Invoices", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+        @Html.ActionLink("Review Invoices", "Index", "Invoices", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+    </div>
+    @*<div class="col-md-3">
+            <h2>Have a Question?</h2>
+            <p>
+
+            </p>
+            @Html.ActionLink("Create Invoice", "Create", "Invoices", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+        </div>*@
+</div>
+
+

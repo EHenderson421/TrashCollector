@@ -20,6 +20,24 @@ namespace NewTrashCollector.Controllers
             return View(db.Customers.ToList());
         }
 
+        // Get: Admin Home
+        public ActionResult AdminHome()
+        {
+            return View();
+        }
+
+        // Get Employee Home
+        public ActionResult EmployeeHome()
+        {
+            return View();
+        }
+
+        //Get: Customers Home
+        public ActionResult CustomerHome()
+        {
+            return View();
+        }
+
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
@@ -52,7 +70,7 @@ namespace NewTrashCollector.Controllers
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CustomerHome");
             }
 
             return View(customer);

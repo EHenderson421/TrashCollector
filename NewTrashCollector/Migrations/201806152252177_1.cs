@@ -12,7 +12,7 @@ namespace NewTrashCollector.Migrations
                 c => new
                     {
                         CustomerId = c.Int(nullable: false, identity: true),
-                        UserId = c.String(maxLength: 128),
+                        UserName = c.String(),
                         FirstName = c.String(),
                         LastName = c.String(),
                         StreetAddress = c.String(),
@@ -21,10 +21,14 @@ namespace NewTrashCollector.Migrations
                         Zip = c.String(),
                         PhoneNumber = c.String(),
                         HasPaid = c.Boolean(nullable: false),
+                        Customer_CustomerId = c.Int(),
+                        User_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.CustomerId)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .Index(t => t.UserId);
+                .ForeignKey("dbo.Customers", t => t.Customer_CustomerId)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .Index(t => t.Customer_CustomerId)
+                .Index(t => t.User_Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -129,10 +133,11 @@ namespace NewTrashCollector.Migrations
             DropForeignKey("dbo.Schedules", "CustomerId", "dbo.Customers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Invoices", "CustomerId", "dbo.Customers");
-            DropForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Customers", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Customers", "Customer_CustomerId", "dbo.Customers");
             DropIndex("dbo.Schedules", new[] { "CustomerId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Invoices", new[] { "CustomerId" });
@@ -141,7 +146,8 @@ namespace NewTrashCollector.Migrations
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Customers", new[] { "UserId" });
+            DropIndex("dbo.Customers", new[] { "User_Id" });
+            DropIndex("dbo.Customers", new[] { "Customer_CustomerId" });
             DropTable("dbo.Schedules");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Invoices");
