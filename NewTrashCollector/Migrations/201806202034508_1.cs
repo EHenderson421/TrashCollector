@@ -12,7 +12,6 @@ namespace NewTrashCollector.Migrations
                 c => new
                     {
                         CustomerId = c.Int(nullable: false, identity: true),
-                        UserName = c.String(),
                         FirstName = c.String(),
                         LastName = c.String(),
                         StreetAddress = c.String(),

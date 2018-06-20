@@ -39,7 +39,7 @@ namespace NewTrashCollector.Controllers
         // GET: Invoices/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId");
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace NewTrashCollector.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", invoice.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", invoice.CustomerId);
             return View(invoice);
         }
 
@@ -73,7 +73,7 @@ namespace NewTrashCollector.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", invoice.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", invoice.CustomerId);
             return View(invoice);
         }
 
@@ -90,7 +90,7 @@ namespace NewTrashCollector.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "UserId", invoice.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", invoice.CustomerId);
             return View(invoice);
         }
 

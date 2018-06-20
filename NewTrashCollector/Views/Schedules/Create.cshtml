@@ -26,7 +26,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PickUpDay, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PickUpDay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.RadioButton("PickUpDay", "Monday") <text> Monday</text>
+                @Html.RadioButton("PickUpDay", "Tuesday") <text> Tuesday</text>
+                @Html.RadioButton("PickUpDay", "Wednesday") <text> Wednesday</text>
+                @Html.RadioButton("PickUpDay", "Thursday") <text> Thursday</text>
+                @Html.RadioButton("PickUpDay", "Friday") <text> Friday</text>
                 @Html.ValidationMessageFor(model => model.PickUpDay, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,12 +38,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PickUpFrequency, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PickUpFrequency, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.RadioButton("PickUpFrequency", "Weekly") <text> Weekly</text>
+                @Html.RadioButton("PickUpFrequency", "Bi-Weekly") <text> Bi-weekly</text>
                 @Html.ValidationMessageFor(model => model.PickUpFrequency, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.SuspendPickUp, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -47,7 +52,7 @@
                     @Html.ValidationMessageFor(model => model.SuspendPickUp, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

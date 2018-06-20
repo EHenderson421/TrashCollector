@@ -64,7 +64,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,UserId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber,HasPaid")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber,HasPaid")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,UserId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber,HasPaid")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber,HasPaid")] Customer customer)
         {
             if (ModelState.IsValid)
             {
