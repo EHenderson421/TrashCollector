@@ -233,6 +233,10 @@
     <Compile Include="Migrations\201806210132051_nullDateTime.Designer.cs">
       <DependentUpon>201806210132051_nullDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806211729535_extraPickUp.cs" />
+    <Compile Include="Migrations\201806211729535_extraPickUp.Designer.cs">
+      <DependentUpon>201806211729535_extraPickUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -409,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806210132051_nullDateTime.resx">
       <DependentUpon>201806210132051_nullDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211729535_extraPickUp.resx">
+      <DependentUpon>201806211729535_extraPickUp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

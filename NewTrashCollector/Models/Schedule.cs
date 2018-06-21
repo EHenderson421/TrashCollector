@@ -27,5 +27,8 @@ namespace NewTrashCollector.Models
 
         [Display(Name = "Re-Start Pick-up")]
         public DateTime? RestartDate { get; set; }
+
+        [Display(Name = "One Time Extra Pick-up")]
+        public DateTime? ExtraPickUp { get; set; }
     }
 }
