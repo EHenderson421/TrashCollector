@@ -7,65 +7,89 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Schedule</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CustomerId, "CustomerId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CustomerId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PickUpDay, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.RadioButton("PickUpDay", "Monday") <text> Monday</text>
-                @Html.RadioButton("PickUpDay", "Tuesday") <text> Tuesday</text>
-                @Html.RadioButton("PickUpDay", "Wednesday") <text> Wednesday</text>
-                @Html.RadioButton("PickUpDay", "Thursday") <text> Thursday</text>
-                @Html.RadioButton("PickUpDay", "Friday") <text> Friday</text>
-                @Html.ValidationMessageFor(model => model.PickUpDay, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PickUpFrequency, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.RadioButton("PickUpFrequency", "Weekly") <text> Weekly</text>
-                @Html.RadioButton("PickUpFrequency", "Bi-Weekly") <text> Bi-weekly</text>
-                @Html.ValidationMessageFor(model => model.PickUpFrequency, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.SuspendPickUp, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.SuspendPickUp)
-                    @Html.ValidationMessageFor(model => model.SuspendPickUp, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+<div class="form-horizontal">
+    <h4>Schedule</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.CustomerId, "CustomerId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("CustomerId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
         </div>
     </div>
-}
 
+    <div class="form-group">
+        @Html.LabelFor(model => model.PickUpDay, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.RadioButton("PickUpDay", "Monday") <text> Monday</text>
+            @Html.RadioButton("PickUpDay", "Tuesday") <text> Tuesday</text>
+            @Html.RadioButton("PickUpDay", "Wednesday") <text> Wednesday</text>
+            @Html.RadioButton("PickUpDay", "Thursday") <text> Thursday</text>
+            @Html.RadioButton("PickUpDay", "Friday") <text> Friday</text>
+            @Html.ValidationMessageFor(model => model.PickUpDay, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PickUpFrequency, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.RadioButton("PickUpFrequency", "Weekly") <text> Weekly</text>
+            @Html.RadioButton("PickUpFrequency", "Bi-Weekly") <text> Bi-weekly</text>
+            @Html.ValidationMessageFor(model => model.PickUpFrequency, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StopDate, "Stop Pick-Up", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StopDate, new { htmlAttributes = new { @class = "datepicker" } })
+            @Html.ValidationMessageFor(model => model.StopDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RestartDate, "Re-Start Pick-Up", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RestartDate, new { htmlAttributes = new { @class = "datepicker" } })
+            @Html.ValidationMessageFor(model => model.RestartDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+    
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+
+        $(function () {
+            $(".datepicker").datepicker({
+                //dateFormat: "mm/dd/yyyy",
+
+                changeMonth: true,
+                changeYear: true,
+                showOn: "both",
+                buttonText: "Select",
+                minDate: new Date(2018, 4, 1),
+
+            });
+        });
+    </script>
+
 }

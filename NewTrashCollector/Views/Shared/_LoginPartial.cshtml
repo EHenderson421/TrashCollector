@@ -13,8 +13,8 @@
 
             @if (User.IsInRole("Employee"))
             {
-                <li>@Html.ActionLink("Home", "Home", "Owners", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
-                <li>@Html.ActionLink("Canceled Appts", "Canceled", "Owners", routeValues: null, htmlAttributes: new { id = "canceled", @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Home", "Home", "Home", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
+                
                 
                 
                 @*<li>@Html.ActionLink("Reservations", "Index", "Reservations", routeValues: null, htmlAttributes: new { id = "reservations", @class = "nav-link" })</li>
@@ -23,8 +23,7 @@
             }
             @if (User.IsInRole("Customer"))
             {
-                <li>@Html.ActionLink("Home", "Home", "Clients", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
-                <li>@Html.ActionLink("View Invoices", "Index", "Invoices", routeValues: null, htmlAttributes: new { id = "invoices", @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Home", "Home", "Home", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
                 <li>@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "about", @class = "nav-link" })</li>
                 <li>@Html.ActionLink("Contact", "Index", "Emails", routeValues: null, htmlAttributes: new { id = "contact", @class = "nav-link" })</li>
             }

@@ -48,10 +48,11 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ScheduleId,CustomerId,PickUpDay,PickUpFrequency,SuspendPickUp")] Schedule schedule)
+        public ActionResult Create([Bind(Include = "ScheduleId,CustomerId,PickUpDay,PickUpFrequency,StopDate,RestartDate")] Schedule schedule)
         {
             if (ModelState.IsValid)
             {
+                
                 db.Schedules.Add(schedule);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,7 +83,7 @@ namespace NewTrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ScheduleId,CustomerId,PickUpDay,PickUpFrequency,SuspendPickUp")] Schedule schedule)
+        public ActionResult Edit([Bind(Include = "ScheduleId,CustomerId,PickUpDay,PickUpFrequency,StopDate,RestartDate")] Schedule schedule)
         {
             if (ModelState.IsValid)
             {

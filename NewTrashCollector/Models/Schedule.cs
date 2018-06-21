@@ -22,8 +22,10 @@ namespace NewTrashCollector.Models
         [Display(Name = "Pick Up Frequency")]
         public string PickUpFrequency { get; set; }
 
-        [Display(Name = "Suspend Pick Up")]
-        public bool SuspendPickUp { get; set; }
+        [Display(Name = "Suspend Pick-Up")]
+        public DateTime? StopDate { get; set; }
 
+        [Display(Name = "Re-Start Pick-up")]
+        public DateTime? RestartDate { get; set; }
     }
 }

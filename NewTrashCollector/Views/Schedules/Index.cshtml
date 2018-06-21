@@ -21,7 +21,10 @@
             @Html.DisplayNameFor(model => model.PickUpFrequency)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SuspendPickUp)
+            @Html.DisplayNameFor(model => model.StopDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestartDate)
         </th>
         <th></th>
     </tr>
@@ -38,12 +41,15 @@
             @Html.DisplayFor(modelItem => item.PickUpFrequency)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SuspendPickUp)
+            @Html.DisplayFor(modelItem => item.StopDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ScheduleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ScheduleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ScheduleId })
+            @Html.DisplayFor(modelItem => item.RestartDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ScheduleId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ScheduleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ScheduleId })
         </td>
     </tr>
 }
