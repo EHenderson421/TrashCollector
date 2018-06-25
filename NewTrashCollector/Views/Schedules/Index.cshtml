@@ -32,32 +32,48 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Customer.CustomerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PickUpDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PickUpFrequency)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StopDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RestartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExtraPickUp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ScheduleId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ScheduleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ScheduleId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickUpDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickUpFrequency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StopDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExtraPickUp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ScheduleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ScheduleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ScheduleId })
+            </td>
+        </tr>
+    }
 
 </table>
+@*<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>*@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiIPz0HVYkYGX8StuqOwNuLR8sfMEb-dI"></script>
+<script type="text/javascript">
+        var geocoder = new google.maps.Geocoder();
+        var cudahy = new google.maps.LatLng(42.95, -87.86);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = { center: cudahy, zoom: 9 };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: cudahy,
+            map: map
+        });
+    
+    </script> 

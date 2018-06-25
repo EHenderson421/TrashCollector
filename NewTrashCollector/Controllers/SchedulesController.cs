@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,6 +17,11 @@ namespace NewTrashCollector.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Schedules
+        public ActionResult Map()
+        {
+           
+            return View();
+        }
         public ActionResult Index()
         {
             var schedules = db.Schedules.Include(s => s.Customer);

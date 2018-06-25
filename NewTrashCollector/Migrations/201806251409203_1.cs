@@ -119,7 +119,9 @@ namespace NewTrashCollector.Migrations
                         CustomerId = c.Int(nullable: false),
                         PickUpDay = c.String(),
                         PickUpFrequency = c.String(),
-                        SuspendPickUp = c.Boolean(nullable: false),
+                        StopDate = c.DateTime(),
+                        RestartDate = c.DateTime(),
+                        ExtraPickUp = c.DateTime(),
                     })
                 .PrimaryKey(t => t.ScheduleId)
                 .ForeignKey("dbo.Customers", t => t.CustomerId, cascadeDelete: true)
