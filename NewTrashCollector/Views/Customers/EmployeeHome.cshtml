@@ -4,9 +4,9 @@
     ViewBag.Title = "EmployeeHome";
 }
 
-<h2>EmployeeHome</h2>
+
 <div>
-    <h1>Employee Home</h1>
+    <h1>Employee Portal</h1>
 
 
 </div>
@@ -18,7 +18,11 @@
         <p>
 
         </p>
-        @Html.ActionLink("Pick-Up List", "Index", "Schedules", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+        @Html.ActionLink("Mon", "MapMonday", "Schedules", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+        @Html.ActionLink("Tue", "MapTuesday", "Schedules", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+        @Html.ActionLink("Wed", "MapWednesday", "Schedules", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+        @Html.ActionLink("Thu", "MapThursday", "Schedules", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+        @Html.ActionLink("Fri", "MapFriday", "Schedules", new { area = "" }, new { @class = "btn btn-primary btn-md" })
     </div>
     <div class="col-md-4">
         <h2>Review Customers</h2>

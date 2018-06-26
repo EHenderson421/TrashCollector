@@ -47,8 +47,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Stripe.net, Version=16.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.16.12.0\lib\net45\Stripe.net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -205,9 +209,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806251409203_1.cs" />
-    <Compile Include="Migrations\201806251409203_1.Designer.cs">
-      <DependentUpon>201806251409203_1.cs</DependentUpon>
+    <Compile Include="Migrations\201806262158553_1.cs" />
+    <Compile Include="Migrations\201806262158553_1.Designer.cs">
+      <DependentUpon>201806262158553_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -352,6 +356,8 @@
     <Content Include="Views\Schedules\MapWednesday.cshtml" />
     <Content Include="Views\Schedules\MapThursday.cshtml" />
     <Content Include="Views\Schedules\MapFriday.cshtml" />
+    <Content Include="Views\Customers\Charge.cshtml" />
+    <Content Include="Views\Customers\PaymentMade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,8 +376,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806251409203_1.resx">
-      <DependentUpon>201806251409203_1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806262158553_1.resx">
+      <DependentUpon>201806262158553_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

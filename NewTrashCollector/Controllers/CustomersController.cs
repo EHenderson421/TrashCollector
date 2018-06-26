@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Stripe;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -13,6 +16,38 @@ namespace NewTrashCollector.Controllers
     public class CustomersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult PaymentMade()
+        {
+            var PublishableKey = ConfigurationManager.AppSettings["pk_test_JzMKHBjO6m8T8tzXt8uXVHLA"];
+            ViewBag.PublishableKey = "pk_test_JzMKHBjO6m8T8tzXt8uXVHLA";
+            return View();
+        }
+
+        public ActionResult Charge(string stripeEmail, string stripeToken)
+        {
+            StripeConfiguration.SetApiKey("sk_test_WomGrW1GTPUfv5X3gCOLGH98"); // put Secret Key here 
+
+            var customers = new StripeCustomerService();
+            var charges = new StripeChargeService();
+
+            var customer = customers.Create(new StripeCustomerCreateOptions
+            {
+                Email = stripeEmail,
+                SourceToken = stripeToken
+            });
+
+            var charge = charges.Create(new StripeChargeCreateOptions
+            {
+                Amount = 5000,
+                Description = "Sample Charge",
+                Currency = "usd",
+                CustomerId = customer.Id
+            });
+
+            return View();
+        }
+
 
         // GET: Customers
         public ActionResult Index()

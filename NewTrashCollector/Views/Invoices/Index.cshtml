@@ -4,15 +4,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Invoice Due</h2>
 
+ 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (User.IsInRole("Employee"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Customer.CustomerId)
+            @Html.DisplayNameFor(model => model.Customer.LastName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AmountDue)
@@ -26,7 +30,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            @Html.DisplayFor(modelItem => item.Customer.LastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AmountDue)
@@ -35,9 +39,17 @@
             @Html.DisplayFor(modelItem => item.InvoicePaid)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.InvoiceId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.InvoiceId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.InvoiceId })
+            @if (User.IsInRole("Employee"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.InvoiceId })
+                @Html.ActionLink("Details", "Details", new { id = item.InvoiceId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.InvoiceId })
+            }
+
+            @if (User.IsInRole("Customer"))
+            {
+                @Html.ActionLink("Make Deposit", "PaymentMade", "Customers", new { area = "" }, new { @class = "btn btn-primary btn-md" })
+            }
         </td>
     </tr>
 }

@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Customer List</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div>
+    @Html.ActionLink("Employee Home", "EmployeeHome", "Customers")
+</div>
 <table class="table">
     <tr>
         <th>
@@ -38,38 +38,633 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+
+
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            <p>Paul</p>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            <p>Williams</p>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.StreetAddress)
+            <p>272 Tabot St</p>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.City)
+            <p>Dousman</p>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.State)
+            <p>WI</p>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Zip)
+            <p>53118</p>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
+            <p>262-123-4567</p>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.HasPaid)
+            <p>
+                <input type="checkbox" name="Has Not Paid" value="false"> Has Not Paid<br>
+            </p>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
         </td>
     </tr>
-}
+
+    <tr>
+        <td>
+            <p>Frank</p>
+        </td>
+        <td>
+            <p>Waschbisch</p>
+        </td>
+        <td>
+            <p>342 Still Water Ct</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Cleetus</p>
+        </td>
+        <td>
+            <p>McFarland</p>
+        </td>
+        <td>
+            <p>266 Edwards St</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Bill</p>
+        </td>
+        <td>
+            <p>Tanner</p>
+        </td>
+        <td>
+            <p>350 Sand Hill Ln</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Jason</p>
+        </td>
+        <td>
+            <p>Schmeckpeper</p>
+        </td>
+        <td>
+            <p>161 Wolf Dr</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>Transport</p>
+        </td>
+        <td>
+            <p>313 S Main St</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Robert</p>
+        </td>
+        <td>
+            <p>Smith</p>
+        </td>
+        <td>
+            <p>206 Ludwig Ave</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Gary</p>
+        </td>
+        <td>
+            <p>Hug</p>
+        </td>
+        <td>
+            <p>206 S Main St</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Dan</p>
+        </td>
+        <td>
+            <p>Schmimmer</p>
+        </td>
+        <td>
+            <p>162 Ludwig Ave</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Barry</p>
+        </td>
+        <td>
+            <p>Lincoln</p>
+        </td>
+        <td>
+            <p>217 Bischel Ct</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Freedom</p>
+        </td>
+        <td>
+            <p>Murica</p>
+        </td>
+        <td>
+            <p>253 W Wooawa Ave</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Brad</p>
+        </td>
+        <td>
+            <p>Harper</p>
+        </td>
+        <td>
+            <p>214 Wolf Ct</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Jill</p>
+        </td>
+        <td>
+            <p>Lily</p>
+        </td>
+        <td>
+            <p>106 Park St</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>HD</p>
+        </td>
+        <td>
+            <p>Restorations</p>
+        </td>
+        <td>
+            <p>130C Henry St</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Karan</p>
+        </td>
+        <td>
+            <p>Frankee</p>
+        </td>
+        <td>
+            <p>171 S Main St</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Beth</p>
+        </td>
+        <td>
+            <p>Loecher</p>
+        </td>
+        <td>
+            <p>120 W Ottawa Ave</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Stephanie</p>
+        </td>
+        <td>
+            <p>Henderson</p>
+        </td>
+        <td>
+            <p>231 Edwards St</p>
+        </td>
+        <td>
+            <p>Dousman</p>
+        </td>
+        <td>
+            <p>WI</p>
+        </td>
+        <td>
+            <p>53118</p>
+        </td>
+        <td>
+            <p>262-123-4567</p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit")
+            @Html.ActionLink("Details", "Details")
+            @Html.ActionLink("Delete", "Delete")
+        </td>
+    </tr>
+    
 
 </table>
+<style>
+    /* Always set the map height explicitly to define the size of the div
+                * element that contains the map. */
+    #map {
+        height: 600px;
+        width: 800px;
+    }
+</style>
+
+<div class="row">
+    <div id="map"></div>
+    <script>
+
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 43.009738, lng: -88.474410 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 16, center: uluru });
+            // The marker, positioned at Uluru
+            //var marker = new google.maps.Marker({ position: uluru, map: map });
+            var marker2 = new google.maps.Marker({ position: { lat: 43.009730, lng: -88.474410 }, map: map });
+            var marker3 = new google.maps.Marker({ position: { lat: 43.010376, lng: -88.472621 }, map: map });
+            var marker4 = new google.maps.Marker({ position: { lat: 43.008824, lng: -88.473788 }, map: map });
+            var marker5 = new google.maps.Marker({ position: { lat: 43.008636, lng: -88.476245 }, map: map });
+            var marker6 = new google.maps.Marker({ position: { lat: 43.008098, lng: -88.476830 }, map: map });
+            var marker7 = new google.maps.Marker({ position: { lat: 43.007045, lng: -88.480501 }, map: map });
+            var marker8 = new google.maps.Marker({ position: { lat: 43.008332, lng: -88.475268 }, map: map });
+            var marker9 = new google.maps.Marker({ position: { lat: 43.009559, lng: -88.481291 }, map: map });
+            var marker10 = new google.maps.Marker({ position: { lat: 43.006472, lng: -88.477477 }, map: map });
+            var marker11 = new google.maps.Marker({ position: { lat: 43.010263, lng: -88.478133 }, map: map });
+            var marker12 = new google.maps.Marker({ position: { lat: 43.011099, lng: -88.467232 }, map: map });
+            var marker13 = new google.maps.Marker({ position: { lat: 43.012286, lng: -88.468773 }, map: map });
+            var marker14 = new google.maps.Marker({ position: { lat: 43.013373, lng: -88.469936 }, map: map });
+            var marker15 = new google.maps.Marker({ position: { lat: 43.011681, lng: -88.473209 }, map: map });
+            var marker16 = new google.maps.Marker({ position: { lat: 43.010814, lng: -88.473903 }, map: map });
+            var marker17 = new google.maps.Marker({ position: { lat: 43.007908, lng: -88.473454 }, map: map });
+            var marker18 = new google.maps.Marker({ position: { lat: 43.012418, lng: -88.474361 }, map: map });
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Q99BbMK14i_VjH7esuLvbibFk9LyLt8&callback=initMap"
+            async defer></script>
+</div>
+
+<div>
+    @Html.ActionLink("Employee Home", "EmployeeHome", "Customers")
+</div>

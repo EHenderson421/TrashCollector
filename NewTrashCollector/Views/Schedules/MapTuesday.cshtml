@@ -1,2 +1,229 @@
-﻿@model NewTrashCollector.Models.Schedule
+﻿@model IEnumerable<NewTrashCollector.Models.Schedule>
 
+
+@{
+    ViewBag.Title = "Map Tusday";
+}
+
+<h2>Tuesday Pick-Ups</h2>
+
+<div>
+    @Html.ActionLink("Employee Home", "EmployeeHome", "Customers")
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.StreetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpFrequency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StopDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExtraPickUp)
+        </th>
+        <th>
+            Account Status
+        </th>
+        <th>Pick-Up Made</th>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Waschbisch</p>
+        </td>
+        <td>
+            <p>342 Still Water Ct</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Has Paid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Schmimmer</p>
+        </td>
+        <td>
+            <p>162 Ludwig Ave</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
+        </td>
+    </tr>
+
+    @*<tr>
+        <td>
+            <p>Lily</p>
+        </td>
+        <td>
+            <p>106 Park St</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Frankee</p>
+        </td>
+        <td>
+            <p>171 S Main St</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Loecher</p>
+        </td>
+        <td>
+            <p>120 W Ottawa Ave</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
+        </td>
+    </tr>*@
+
+
+
+</table>
+<style>
+    /* Always set the map height explicitly to define the size of the div
+                * element that contains the map. */
+    #map {
+        height: 600px;
+        width: 800px;
+    }
+</style>
+
+<div class="row">
+    <div id="map"></div>
+    <script>
+
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 43.009738, lng: -88.474410 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 16, center: uluru });
+            // The marker, positioned at Uluru
+            //var marker = new google.maps.Marker({ position: uluru, map: map });
+            var marker2 = new google.maps.Marker({ position: { lat: 43.007045, lng: -88.480501 }, map: map });
+            var marker3 = new google.maps.Marker({ position: { lat: 43.008332, lng: -88.475268 }, map: map });
+            //var marker4 = new google.maps.Marker({ position: { lat: 43.013373, lng: -88.469936 }, map: map });
+            //var marker5 = new google.maps.Marker({ position: { lat: 43.011681, lng: -88.473209 }, map: map });
+            //var marker6 = new google.maps.Marker({ position: { lat: 43.010814, lng: -88.473903 }, map: map });
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Q99BbMK14i_VjH7esuLvbibFk9LyLt8&callback=initMap"
+            async defer></script>
+</div>

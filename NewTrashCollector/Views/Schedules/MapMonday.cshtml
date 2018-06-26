@@ -7,6 +7,10 @@
 
 <h2>Monday Pick-Ups</h2>
 
+<div>
+    @Html.ActionLink("Employee Home", "EmployeeHome", "Customers")
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -27,7 +31,10 @@
         <th>
             @Html.DisplayNameFor(model => model.ExtraPickUp)
         </th>
-        <th></th>
+        <th>
+        Account Status
+        </th>
+        <th>Pick-Up Made</th>
     </tr>
 
     <tr>
@@ -48,6 +55,16 @@
         </td>
         <td>
             <p></p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Has Not Paid" value="false" > Has Not Paid<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked > Pick-Up Made<br>
+            </p>
         </td>
     </tr>
 
@@ -70,6 +87,16 @@
         <td>
             <p>7/6/2018 12:00:00 AM</p>
         </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
+        </td>
     </tr>
 
     <tr>
@@ -90,6 +117,16 @@
         </td>
         <td>
             <p></p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
         </td>
     </tr>
 
@@ -112,6 +149,16 @@
         <td>
             <p></p>
         </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
+        </td>
     </tr>
 
     <tr>
@@ -133,6 +180,16 @@
         <td>
             <p></p>
         </td>
+        <td>
+            <p>
+                <input type="checkbox" name="HasPaid" value="true" checked> Up To Date<br>
+            </p>
+        </td>
+        <td>
+            <p>
+                <input type="checkbox" name="Pick-Up Made" value="true" checked> Pick-Up Made<br>
+            </p>
+        </td>
     </tr>
 
 
@@ -142,8 +199,8 @@
     /* Always set the map height explicitly to define the size of the div
                 * element that contains the map. */
     #map {
-        height: 400px;
-        width: 400px;
+        height: 600px;
+        width: 800px;
     }
 </style>
 
@@ -156,7 +213,7 @@
             var uluru = { lat: 43.009738, lng: -88.474410 };
             // The map, centered at Uluru
             var map = new google.maps.Map(
-                document.getElementById('map'), { zoom: 15, center: uluru });
+                document.getElementById('map'), { zoom: 16, center: uluru });
             // The marker, positioned at Uluru
             //var marker = new google.maps.Marker({ position: uluru, map: map });
             var marker2 = new google.maps.Marker({ position: { lat: 43.009730, lng: -88.474410 }, map: map });
