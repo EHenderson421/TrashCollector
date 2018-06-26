@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Customer.CustomerId)
+            @Html.DisplayNameFor(model => model.Customer.LastName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PickUpDay)
@@ -36,7 +36,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+                @Html.DisplayFor(modelItem => item.Customer.LastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PickUpDay)
@@ -62,18 +62,35 @@
     }
 
 </table>
-@*<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>*@
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiIPz0HVYkYGX8StuqOwNuLR8sfMEb-dI"></script>
-<script type="text/javascript">
-        var geocoder = new google.maps.Geocoder();
-        var cudahy = new google.maps.LatLng(42.95, -87.86);
-        var mapCanvas = document.getElementById("map");
-        var mapOptions = { center: cudahy, zoom: 9 };
-        var map = new google.maps.Map(mapCanvas, mapOptions);
+<style>
+    /* Always set the map height explicitly to define the size of the div
+                * element that contains the map. */
+    #map {
+        height: 400px;
+        width: 400px;
+    }
+</style>
 
-        var marker = new google.maps.Marker({
-            position: cudahy,
-            map: map
-        });
-    
-    </script> 
+<div class="row">
+    <div id="map"></div>
+    <script>
+
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 43.008098, lng: -88.476830 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 15, center: uluru });
+            // The marker, positioned at Uluru
+            //var marker = new google.maps.Marker({ position: uluru, map: map });
+            var marker2 = new google.maps.Marker({ position: { lat: 43.009730, lng: -88.474410 }, map: map });
+            //var marker3 = new google.maps.Marker({ position: { lat: 43.010376, lng: -88.472621 }, map: map });
+            //var marker4 = new google.maps.Marker({ position: { lat: 43.008824, lng: -88.473788 }, map: map });
+            //var marker5 = new google.maps.Marker({ position: { lat: 43.008636, lng: -88.476245 }, map: map });
+            //var marker6 = new google.maps.Marker({ position: { lat: 43.008098, lng: -88.476830 }, map: map });
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Q99BbMK14i_VjH7esuLvbibFk9LyLt8&callback=initMap"
+            async defer></script>
+</div>

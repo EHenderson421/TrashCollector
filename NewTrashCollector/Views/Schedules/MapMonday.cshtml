@@ -1,0 +1,172 @@
+﻿@model IEnumerable<NewTrashCollector.Models.Schedule>
+
+
+@{
+    ViewBag.Title = "Map Monday";
+}
+
+<h2>Monday Pick-Ups</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.StreetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpFrequency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StopDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExtraPickUp)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Williams</p>
+        </td>
+        <td>
+            <p>272 Tabot St</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Smith</p>
+        </td>
+        <td>
+            <p>206 Ludwig Ave</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p>6/1/2018 12:00:00 AM</p>
+        </td>
+        <td>
+            <p>7/2/2018 12:00:00 AM</p>
+        </td>
+        <td>
+            <p>7/6/2018 12:00:00 AM</p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Hug</p>
+        </td>
+        <td>
+            <p>206 S Main St</p>
+        </td>
+        <td>
+            <p>Bi-Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>McFarland</p>
+        </td>
+        <td>
+            <p>266 Edwards St</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <p>Henderson</p>
+        </td>
+        <td>
+            <p>231 Edwards St</p>
+        </td>
+        <td>
+            <p>Weekly</p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+        <td>
+            <p></p>
+        </td>
+    </tr>
+
+
+
+</table>
+<style>
+    /* Always set the map height explicitly to define the size of the div
+                * element that contains the map. */
+    #map {
+        height: 400px;
+        width: 400px;
+    }
+</style>
+
+<div class="row">
+    <div id="map"></div>
+    <script>
+
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 43.009738, lng: -88.474410 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 15, center: uluru });
+            // The marker, positioned at Uluru
+            //var marker = new google.maps.Marker({ position: uluru, map: map });
+            var marker2 = new google.maps.Marker({ position: { lat: 43.009730, lng: -88.474410 }, map: map });
+            var marker3 = new google.maps.Marker({ position: { lat: 43.010376, lng: -88.472621 }, map: map });
+            var marker4 = new google.maps.Marker({ position: { lat: 43.008824, lng: -88.473788 }, map: map });
+            var marker5 = new google.maps.Marker({ position: { lat: 43.008636, lng: -88.476245 }, map: map });
+            var marker6 = new google.maps.Marker({ position: { lat: 43.008098, lng: -88.476830 }, map: map });
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_Q99BbMK14i_VjH7esuLvbibFk9LyLt8&callback=initMap"
+            async defer></script>
+</div>

@@ -347,7 +347,11 @@
     <Content Include="Views\Customers\CustomerHome.cshtml" />
     <Content Include="Views\Customers\EmployeeHome.cshtml" />
     <Content Include="Views\Customers\AdminHome.cshtml" />
-    <Content Include="Views\Schedules\Map.cshtml" />
+    <Content Include="Views\Schedules\MapMonday.cshtml" />
+    <Content Include="Views\Schedules\MapTuesday.cshtml" />
+    <Content Include="Views\Schedules\MapWednesday.cshtml" />
+    <Content Include="Views\Schedules\MapThursday.cshtml" />
+    <Content Include="Views\Schedules\MapFriday.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

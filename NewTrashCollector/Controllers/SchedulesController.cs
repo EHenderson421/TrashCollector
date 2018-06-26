@@ -17,9 +17,33 @@ namespace NewTrashCollector.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Schedules
-        public ActionResult Map()
+        public ActionResult MapMonday()
         {
            
+            return View();
+        }
+
+        public ActionResult MapTuesday()
+        {
+
+            return View();
+        }
+
+        public ActionResult MapWednesday()
+        {
+
+            return View();
+        }
+
+        public ActionResult MapThursday()
+        {
+
+            return View();
+        }
+
+        public ActionResult MapFriday()
+        {
+
             return View();
         }
         public ActionResult Index()
