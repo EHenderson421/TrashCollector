@@ -41,9 +41,9 @@
         <td>
             @if (User.IsInRole("Employee"))
             {
-                @Html.ActionLink("Edit", "Edit", new { id = item.InvoiceId })
-                @Html.ActionLink("Details", "Details", new { id = item.InvoiceId })
-                @Html.ActionLink("Delete", "Delete", new { id = item.InvoiceId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.InvoiceId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.InvoiceId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.InvoiceId }) 
             }
 
             @if (User.IsInRole("Customer"))

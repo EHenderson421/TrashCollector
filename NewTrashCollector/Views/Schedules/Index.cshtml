@@ -29,6 +29,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ExtraPickUp)
         </th>
+        <th>Monthy Amount Due</th>
         <th></th>
     </tr>
 
@@ -52,6 +53,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ExtraPickUp)
+            </td>
+            <td>
+                $80
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ScheduleId }) |
