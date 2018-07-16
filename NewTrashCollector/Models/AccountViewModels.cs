@@ -81,8 +81,8 @@ namespace NewTrashCollector.Models
         public string ConfirmPassword { get; set; }
 
         //pick the one you need
-        //public string RoleName = "Customer";
-        public string RoleName = "Employee";
+        public string RoleName = "Customer";
+        //public string RoleName = "Employee";
     }
 
     public class ResetPasswordViewModel

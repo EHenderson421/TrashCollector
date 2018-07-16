@@ -26,7 +26,7 @@ namespace NewTrashCollector.Controllers
 
         public ActionResult Charge(string stripeEmail, string stripeToken)
         {
-            StripeConfiguration.SetApiKey("sk_test_WomGrW1GTPUfv5X3gCOLGH98"); // put Secret Key here 
+            StripeConfiguration.SetApiKey(""); // put Secret Key here 
 
             var customers = new StripeCustomerService();
             var charges = new StripeChargeService();
